@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draw With Friends — Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🎨 Draw With Friends</div>
+    <div class="room">
+      Room: <span id="roomId">(loading)</span>
+      <button id="copyLink" class="btn">Copy Invite Link</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="left">
+      <div class="toolbar">
+        <label>Size <input id="size" type="range" min="2" max="24" value="6"></label>
+        <input id="color" type="color" value="#111111">
+        <button id="clear" class="btn">Clear</button>
+        <label><input id="drawToggle" type="checkbox" checked> Draw mode</label>
+      </div>
+      <canvas id="board" width="900" height="600"></canvas>
+      <div class="hint">Tip: Use phone touch or mouse to draw. Toggle draw mode off to use chat/guess without drawing.</div>
+    </section>
+
+    <section class="right">
+      <div class="panel">
+        <div class="panel-header">Word (only drawer sees)</div>
+        <div class="word-box">
+          <input id="wordInput" placeholder="Type a word to draw">
+          <button id="setWord" class="btn">Set</button>
+          <div id="currentWord" class="muted"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">Chat & Guesses</div>
+        <div id="chat" class="chat"></div>
+        <div class="chat-input">
+          <input id="name" placeholder="Your name">
+          <input id="message" placeholder="Type a message or your guess">
+          <button id="send" class="btn">Send</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
